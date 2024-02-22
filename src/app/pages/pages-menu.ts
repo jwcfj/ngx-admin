@@ -2,12 +2,52 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'E-commerce',
-    icon: 'shopping-cart-outline',
-    link: '/pages/dashboard',
+    title: 'Stakeholder',
+    icon: 'person-outline',
+    link: '/ktadmin/stakeholder',
     home: true,
   },
   {
+    title: 'Processo',
+    icon: 'person-outline',
+    link: '/ktadmin',
+    home: true,
+    children: [
+      {
+        title: 'Listar',
+      },
+      {
+        title: 'Adicionar',
+      },
+      {
+        title: 'Remover',
+      },
+      {
+        title: 'Atualizar',
+      },
+    ],
+  },
+  {
+    title: 'Formulario',
+    icon: 'person-outline',
+    link: '/ktadmin',
+    home: true,
+    children: [
+      {
+        title: 'Listar',
+      },
+      {
+        title: 'Adicionar',
+      },
+      {
+        title: 'Remover',
+      },
+      {
+        title: 'Atualizar',
+      },
+    ],
+  },
+  /*{
     title: 'IoT Dashboard',
     icon: 'home-outline',
     link: '/pages/iot-dashboard',
@@ -243,5 +283,5 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/auth/reset-password',
       },
     ],
-  },
+  },*/
 ];

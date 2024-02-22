@@ -1,0 +1,84 @@
+
+      <!-- <form> -->
+
+        <!-- <div *ngIf="this.buttonData"> -->
+            <!-- <nb-list-item > -->
+            <!-- <form (ngSubmit)="onSubmit($event)"> -->
+              <form>
+            <nb-card class="list-card" size="small">
+              <nb-card-body>
+            <nb-list-item >
+              <div class="form-group">
+                <label for="nomeFormulario" class="label">Nome Formulario</label>
+                <input [disabled]="true" type="text" nbInput fullWidth id="nomeFormulario" placeholder="Formulario">
+              </div>
+            </nb-list-item>
+            <nb-list-item >
+              <div class="form-group">
+                <label for="nomeForm" class="label">Nome Stakeholder</label>
+                <input [disabled]="true" type="text" nbInput fullWidth id="nomeStakeholder" placeholder="Stakeholder">
+              </div>
+            </nb-list-item>
+            <nb-list-item >
+              <div class="form-group">
+                <label for="data_criacao" class="label">Data Criacao</label>
+                <input [disabled]="true" type="text" nbInput fullWidth id="data_criacao" placeholder="Data">
+              </div>
+            </nb-list-item>
+            
+            
+            <nb-list>
+
+          <!-- <div *ngFor="let resposta of formularioRespondidoData.respostas_questoes; let i = index" class="form-group"> -->
+            <!-- <label for="respostas_questoes_1" class="label">Resposta Questao {{i}}</label> -->
+            
+            <nb-list-item  *ngFor="let resposta of formularioRespondidoData.respostas_questoes; let i = index" ngForTrackBy="i">
+              <!-- <nb-list-item  > -->
+                <div class="form-group">
+                  <nb-card>
+                    <nb-card-header>Pergunta {{i}}</nb-card-header>
+                    <nb-card-body>
+                  <!-- <label for="pergunta_{{i}}" class="label">Pergunta {{i}}</label> -->
+                  <input [disabled]="true" type="text" nbInput fullWidth id="pergunta_{{i}}" placeholder="{{resposta.pergunta}}">
+                </nb-card-body>
+              </nb-card>
+                </div>
+              <!-- </nb-list-item> -->
+              <!-- <nb-list-item  > -->
+
+                <!-- <div class="form-group">
+                  <label for="id_{{i}}" class="label">Questao_id</label>
+                  <input [disabled]="true" type="number" [(ngModel)]="formularioRespondidoData.respostas_questoes[i].id" nbInput fullWidth id="id_{{i}}" placeholder="{{resposta.id}}">
+                </div>                   -->
+              <!-- </nb-list-item> -->
+              <!-- <nb-list-item  > -->
+
+                <div class="form-group">
+                  <!-- <label for="alternativa_{{i}}" class="label">Alternativa_id:</label>
+                  <input [disabled]="true" type="number" [(ngModel)]="formularioRespondidoData.respostas_questoes[i].alternativa_id" nbInput fullWidth id="alternativa_{{i}}" placeholder="{{resposta.alternativa_id}}"> -->
+                  <!-- <nb-select *ngIf="formulario" [(ngModel)]="edittedForm.respostas_questoes[i].alternativa_id"  matRipple selected="{{edittedForm.respostas_questoes[i].alternativa_id}}"> -->
+                  <!-- <nb-select *ngIf="formulario" [(ngModel)]="alternativaSelecionada" (ngModelChange)="onChangeAlternativa($event)"  matRipple selected="{{edittedForm.respostas_questoes[i].alternativa_id}}">
+                    <nb-option *ngFor="let item of formulario.questoes[i].alternativas; let j = index" matRipple value="{{item.id}}">{{item.alternativa}}</nb-option>
+                  </nb-select> -->
+                  <nb-card>
+                    <nb-card-header>Alternativa:</nb-card-header>
+                    <nb-card-body>
+                  <!-- <label for="alternativa_{{i}}" class="label">Alternativa:</label> -->
+                  <nb-select *ngIf="formulario" [(selected)]="alternativaSelecionada"  matRipple selected="{{edittedForm.respostas_questoes[i].alternativa_id}}">
+                    
+                    <nb-option *ngFor="let item of formulario.questoes[i].alternativas; let j = index" matRipple value="{{item.id}}" (click)="onChangeAlternativa(item.id, i)">{{item.alternativa}}</nb-option>
+                  </nb-select>
+                </nb-card-body>
+                </nb-card>
+                </div>
+              
+              <!-- </nb-list-item> -->
+          </nb-list-item>
+          <!-- </div> -->
+        <!-- </nb-list-item> -->
+        </nb-list></nb-card-body></nb-card>
+        <button class="botao-submit" type="button" nbButton status="danger" (click)="onSubmit()">Submit</button>
+      </form>
+        <!-- </div> -->
+        <!-- <button type="submit" nbButton status="danger">Submit</button> -->
+      <!-- </form> -->

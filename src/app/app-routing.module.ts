@@ -16,6 +16,9 @@ export const routes: Routes = [
       .then(m => m.PagesModule),
   },
   {
+    path: 'ktadmin',loadChildren: () => import('./ktadmin/ktadmin.module').then(m => m.KtadminModule),
+  },
+  {
     path: 'auth',
     component: NbAuthComponent,
     children: [
@@ -45,8 +48,10 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' },
+  { path: '', redirectTo: 'ktadmin', pathMatch: 'full' },
+  //{ path: 'path-string', loadChildren: () => import('./knowledge-transfer-admin/knowledge-transfer-admin.module').then(m => m.KnowledgeTransferAdminModule) },
+  //{ path: 'path-string', loadChildren: () => import('./ktadmin/ktadmin.module').then(m => m.KtadminModule) },
+  { path: '**', redirectTo: 'ktadmin' },
 ];
 
 const config: ExtraOptions = {
