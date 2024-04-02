@@ -18,40 +18,13 @@ export const routes: Routes = [
   {
     path: 'ktadmin',loadChildren: () => import('./ktadmin/ktadmin.module').then(m => m.KtadminModule),
   },
-  {
-    path: 'auth',
-    component: NbAuthComponent,
-    children: [
-      {
-        path: '',
-        component: NbLoginComponent,
-      },
-      {
-        path: 'login',
-        component: NbLoginComponent,
-      },
-      {
-        path: 'register',
-        component: NbRegisterComponent,
-      },
-      {
-        path: 'logout',
-        component: NbLogoutComponent,
-      },
-      {
-        path: 'request-password',
-        component: NbRequestPasswordComponent,
-      },
-      {
-        path: 'reset-password',
-        component: NbResetPasswordComponent,
-      },
-    ],
-  },
-  { path: '', redirectTo: 'ktadmin', pathMatch: 'full' },
+  //{ path: 'client/formulario',loadChildren: () => import('./client/formulario/formulario.module').then(m => m.FormularioModule)},
+  //{ path: 'client',loadChildren: () => import('./client/client.module').then(m => m.ClientModule)},
+  { path: 'client',loadChildren: () => import('./client/client.module').then(m => m.ClientModule)},
+  { path: '', redirectTo: 'client', pathMatch: 'full' },
   //{ path: 'path-string', loadChildren: () => import('./knowledge-transfer-admin/knowledge-transfer-admin.module').then(m => m.KnowledgeTransferAdminModule) },
   //{ path: 'path-string', loadChildren: () => import('./ktadmin/ktadmin.module').then(m => m.KtadminModule) },
-  { path: '**', redirectTo: 'ktadmin' },
+  //{ path: '**', redirectTo: 'client' },
 ];
 
 const config: ExtraOptions = {

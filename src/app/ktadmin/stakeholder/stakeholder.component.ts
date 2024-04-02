@@ -4,8 +4,8 @@ import { LocalDataSource } from 'ng2-smart-table';
 import { SmartTableData } from '../../@core/data/smart-table';
 import { StakeholderService } from './stakeholder.service';
 import { Stakeholder } from '../model/stakeholder';
-import { ModalOverlaysComponent } from '../../pages/modal-overlays/modal-overlays.component';
-import { WindowComponent } from '../../pages/modal-overlays/window/window.component';
+// import { ModalOverlaysComponent } from '../../pages/modal-overlays/modal-overlays.component';
+// import { WindowComponent } from '../../pages/modal-overlays/window/window.component';
 import { FormsRespondidosButtonComponent } from './forms-respondidos-button/forms-respondidos-button.component';
 @Component({
   selector: 'ngx-stakeholder',

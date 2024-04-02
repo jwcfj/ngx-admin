@@ -1,51 +1,23 @@
 import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
-  {
-    title: 'Stakeholder',
-    icon: 'person-outline',
-    link: '/ktadmin/stakeholder',
-    home: true,
-  },
+  // {
+  //   title: 'Stakeholder',
+  //   icon: 'person-outline',
+  //   link: '/ktadmin/stakeholder',
+  //   home: true,
+  // },
   {
     title: 'Processo',
     icon: 'person-outline',
-    link: '/ktadmin',
+    link: '/ktadmin/processo',
     home: true,
-    children: [
-      {
-        title: 'Listar',
-      },
-      {
-        title: 'Adicionar',
-      },
-      {
-        title: 'Remover',
-      },
-      {
-        title: 'Atualizar',
-      },
-    ],
   },
   {
-    title: 'Formulario',
+    title: 'Alternativa',
     icon: 'person-outline',
-    link: '/ktadmin',
+    link: '/ktadmin/alternativa',
     home: true,
-    children: [
-      {
-        title: 'Listar',
-      },
-      {
-        title: 'Adicionar',
-      },
-      {
-        title: 'Remover',
-      },
-      {
-        title: 'Atualizar',
-      },
-    ],
   },
   /*{
     title: 'IoT Dashboard',

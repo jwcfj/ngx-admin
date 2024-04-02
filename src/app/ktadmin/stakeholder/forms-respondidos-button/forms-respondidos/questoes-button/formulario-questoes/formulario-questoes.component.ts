@@ -54,7 +54,7 @@ export class FormularioQuestoesComponent  implements OnInit{
     console.log(this.edittedForm);
     console.log(this.formularioRespondidoData)
     console.log(this.buttonData.formularioData)
-    this.formularioQuestoesService.updateFormulario(this.edittedForm).subscribe();;
+    this.formularioQuestoesService.updateFormulario(this.edittedForm).subscribe();
 
   }
 

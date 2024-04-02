@@ -3,7 +3,11 @@ import { MENU_ITEMS } from '../pages/pages-menu';
 
 @Component({
   selector: 'ngx-ktadmin',
-  templateUrl: './ktadmin.component.html',
+  template:`<ngx-one-column-layout>
+  <nb-menu [items]="menu"></nb-menu>
+  <router-outlet></router-outlet>
+</ngx-one-column-layout>`,
+  //templateUrl: './ktadmin.component.html',
   styleUrls: ['./ktadmin.component.scss']
 })
 export class KtadminComponent {

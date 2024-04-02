@@ -20,6 +20,7 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import { ClientComponent } from './client/client.component';
 
 @NgModule({
   declarations: [AppComponent],

@@ -10,7 +10,7 @@ export class Questao {
     alternativas: Alternativa[];
 }
 
-export class Alternativa {
+class Alternativa {
     id:          number;
     alternativa: string;
     processo_id: number;

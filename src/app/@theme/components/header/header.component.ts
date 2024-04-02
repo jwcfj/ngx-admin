@@ -67,29 +67,29 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.currentTheme = this.themeService.currentTheme;
+    //this.currentTheme = this.themeService.currentTheme;
+    this.currentTheme = 'dark';
+    // this.userService.getUsers()
+    //   .pipe(takeUntil(this.destroy$))
+    //   .subscribe((users: any) => this.user = users.nick);
 
-    this.userService.getUsers()
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((users: any) => this.user = users.nick);
+    // const { xl } = this.breakpointService.getBreakpointsMap();
+    // this.themeService.onMediaQueryChange()
+    //   .pipe(
+    //     map(([, currentBreakpoint]) => currentBreakpoint.width < xl),
+    //     takeUntil(this.destroy$),
+    //   )
+    //   .subscribe((isLessThanXl: boolean) => this.userPictureOnly = isLessThanXl);
 
-    const { xl } = this.breakpointService.getBreakpointsMap();
-    this.themeService.onMediaQueryChange()
-      .pipe(
-        map(([, currentBreakpoint]) => currentBreakpoint.width < xl),
-        takeUntil(this.destroy$),
-      )
-      .subscribe((isLessThanXl: boolean) => this.userPictureOnly = isLessThanXl);
-
-    this.themeService.onThemeChange()
-      .pipe(
-        map(({ name }) => name),
-        takeUntil(this.destroy$),
-      )
-      .subscribe(themeName => {
-        this.currentTheme = themeName;
-        this.rippleService.toggle(themeName?.startsWith('material'));
-      });
+    // this.themeService.onThemeChange()
+    //   .pipe(
+    //     map(({ name }) => name),
+    //     takeUntil(this.destroy$),
+    //   )
+    //   .subscribe(themeName => {
+    //     this.currentTheme = themeName;
+    //     this.rippleService.toggle(themeName?.startsWith('material'));
+    //   });
   }
 
   ngOnDestroy() {
