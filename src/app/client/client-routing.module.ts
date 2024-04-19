@@ -17,7 +17,10 @@ const routes: Routes = [
       },
       {        
         path:'formulario/resultado', component:ResultadoComponent
-    }
+      },
+      {
+        path: '**', component: NavegarFormularioComponent,
+      },
     ]
   },
 ];

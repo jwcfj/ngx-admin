@@ -16,11 +16,6 @@ export class AlternativaService {
   getAlternativas(): Observable<Alternativa[]> {
     return this.http.get<Alternativa[]>('http://localhost:8080/alternativa?size=100&page=0').pipe(
         map((response:any) =>response.content));
-        /*map((response:any)=> {
-            const stakeholders: Stakeholder[] = response.content.map((stakeholderData:any) => new Stakeholder(stakeholderData));
-            return stakeholders;
-        } )
-    );*/
 }
 
 deleteAlternativa(id:number): Observable<any>{
@@ -28,12 +23,10 @@ deleteAlternativa(id:number): Observable<any>{
 }
 
 updateAlternativa(alternativa:Alternativa):Observable<any>{
-    console.log(alternativa);
     return this.http.put(`http://localhost:8080/alternativa`,alternativa);
 }
 
 addAlternativa(alternativaPost:AlternativaPost):Observable<any>{
-  console.log(alternativaPost)
     return this.http.post(`http://localhost:8080/alternativa`,alternativaPost)
 }
 }

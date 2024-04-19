@@ -27,10 +27,6 @@ export class ProcessoComponent {
       deleteButtonContent: '<i class="nb-trash"></i>',
       confirmDelete: true,
     },    
-    // FormsRespondidos: {
-    //   title: 'FormsRespondidos',
-    //   formsRespondidosButtonContent: '<i class="archive-outline"></i>'
-    // },
     columns: {
       id: {
         title: 'ID',
@@ -41,7 +37,6 @@ export class ProcessoComponent {
       nome: {
         title: 'Nome',
         type: 'string',
-        //editable: true
       },
       descricao: {
         title: 'Descricao',
@@ -56,36 +51,20 @@ export class ProcessoComponent {
     ) {
     this.processo_service.getProcessos().subscribe(response =>{
       this.data1=response;
-      console.log(this.data1);
       this.source.load(this.data1);
     });
   }
 
-  showAnsweredForms(row){
-    console.log(row);
-  }
-  getStakeholders():void {
-     this.processo_service.getProcessos().subscribe(
-       (retornoAPI) => console.log(retornoAPI)
-     )
-  }
-
   onAddConfirm(event): void {
-    console.log(event);
-    //const stakeholder:Stakeholder = event.newData;
     this.processo_service.addProcesso(event.newData).subscribe(event.confirm.resolve());
   }
 
   onEditConfirm(event): void {
-    console.log(event);
-    //const stakeholder:Stakeholder = event.newData;
-    if(event.data!=event.newData)console.log("equals")
     this.processo_service.updateProcesso(event.newData).subscribe(event.confirm.resolve());
   }
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
-      console.log(event);
       this.processo_service.deleteProcesso(event.data.id).subscribe(event.confirm.resolve());
     } else {
       event.confirm.reject();

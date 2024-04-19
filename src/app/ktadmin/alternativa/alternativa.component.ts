@@ -27,10 +27,6 @@ export class AlternativaComponent {
       deleteButtonContent: '<i class="nb-trash"></i>',
       confirmDelete: true,
     },    
-    // FormsRespondidos: {
-    //   title: 'FormsRespondidos',
-    //   formsRespondidosButtonContent: '<i class="archive-outline"></i>'
-    // },
     columns: {
       id: {
         title: 'ID',
@@ -61,37 +57,20 @@ export class AlternativaComponent {
     ) {
     this.alternativa_service.getAlternativas().subscribe(response =>{
       this.data1=response;
-      console.log(this.data1);
       this.source.load(this.data1);
     });
   }
 
-  showAnsweredForms(row){
-    console.log(row);
-  }
-  getStakeholders():void {
-     this.alternativa_service.getAlternativas().subscribe(
-       (retornoAPI) => console.log(retornoAPI)
-     )
-  }
-
   onAddConfirm(event): void {
-    console.log(event);
-    //const stakeholder:Stakeholder = event.newData;
     this.alternativa_service.addAlternativa(event.newData).subscribe(event.confirm.resolve());
   }
 
   onEditConfirm(event): void {
-    console.log(event);
-    //const Alternativa:Alternativa = event.newData;
-    if(event.data!=event.newData)console.log("equals")
-    //this.alternativa_service.updateAlternativa(event.newData).subscribe(event.confirm.resolve());
     this.alternativa_service.updateAlternativa(event.newData).subscribe(event.confirm.resolve());
   }
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
-      console.log(event);
       this.alternativa_service.deleteAlternativa(event.data.id).subscribe(event.confirm.resolve());
     } else {
       event.confirm.reject();

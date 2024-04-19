@@ -7,7 +7,6 @@ import { MENU_ITEMS } from '../pages/pages-menu';
   <nb-menu [items]="menu"></nb-menu>
   <router-outlet></router-outlet>
 </ngx-one-column-layout>`,
-  //templateUrl: './ktadmin.component.html',
   styleUrls: ['./ktadmin.component.scss']
 })
 export class KtadminComponent {

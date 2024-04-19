@@ -9,7 +9,8 @@ const routes: Routes = [
     children:[
       {
         path:'resultado', component:ResultadoComponent
-      },]
+      }
+    ]
   },
 ];
 

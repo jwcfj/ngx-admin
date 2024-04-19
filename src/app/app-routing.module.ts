@@ -18,13 +18,9 @@ export const routes: Routes = [
   {
     path: 'ktadmin',loadChildren: () => import('./ktadmin/ktadmin.module').then(m => m.KtadminModule),
   },
-  //{ path: 'client/formulario',loadChildren: () => import('./client/formulario/formulario.module').then(m => m.FormularioModule)},
-  //{ path: 'client',loadChildren: () => import('./client/client.module').then(m => m.ClientModule)},
   { path: 'client',loadChildren: () => import('./client/client.module').then(m => m.ClientModule)},
   { path: '', redirectTo: 'client', pathMatch: 'full' },
-  //{ path: 'path-string', loadChildren: () => import('./knowledge-transfer-admin/knowledge-transfer-admin.module').then(m => m.KnowledgeTransferAdminModule) },
-  //{ path: 'path-string', loadChildren: () => import('./ktadmin/ktadmin.module').then(m => m.KtadminModule) },
-  //{ path: '**', redirectTo: 'client' },
+  { path: '**', redirectTo: 'client' },
 ];
 
 const config: ExtraOptions = {

@@ -26,7 +26,6 @@ export class ProcessoService {
 }
 
   updateProcesso(processo:Processo):Observable<any>{
-      console.log(processo);
       return this.http.put(`http://localhost:8080/processo`,processo);
   }
 

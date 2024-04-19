@@ -8,7 +8,6 @@ import { NbMenuItem } from '@nebular/theme';
   <router-outlet></router-outlet>
 </ngx-one-column-layout> 
 `,
-  //templateUrl: './client.component.html',
   styleUrls: ['./client.component.scss']
 })
 export class ClientComponent {
@@ -19,6 +18,5 @@ export class ClientComponent {
       link: '/client',
       home: true,
     },];
-  //menu = MENU_ITEMS;
 
 }
