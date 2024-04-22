@@ -1,11 +1,7 @@
 
-export class Alternativa {
+export class AlternativaKtadmin {
     public alternativa_id: number;
     public pergunta: string;
-    public processos:{
-        processo_id:number,
-        nome,
-    }[]
     //public processo_id: number;
     //public processo: string;
     constructor(data:any){

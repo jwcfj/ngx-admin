@@ -10,12 +10,16 @@ import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule } from '@ne
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ProcessoComponent } from './processo/processo.component';
 import { AlternativaComponent } from './alternativa/alternativa.component';
+import { ProcessosPossuidosComponent } from './alternativa/processos-possuidos/processos-possuidos.component';
+import { BotaoPossuirProcessosComponent } from './alternativa/botao-possuir-processos/botao-possuir-processos.component';
 
 @NgModule({
   declarations: [
     KtadminComponent,
     ProcessoComponent,
-    AlternativaComponent
+    AlternativaComponent,
+    ProcessosPossuidosComponent,
+    BotaoPossuirProcessosComponent
   ],
   imports: [
     CommonModule,
