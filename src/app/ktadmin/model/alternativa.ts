@@ -2,10 +2,10 @@
 export class Alternativa {
     public alternativa_id: number;
     public pergunta: string;
-    public processos:{
-        processo_id:number,
-        nome,
-    }[]
+    // public processos:{
+    //     processo_id:number,
+    //     nome,
+    // }[]
     //public processo_id: number;
     //public processo: string;
     constructor(data:any){

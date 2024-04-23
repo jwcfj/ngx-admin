@@ -12,10 +12,11 @@ export class FormularioService {
   constructor(private http: HttpClient) { }
 
   getAlternativas(): Observable<AlternativaCheck[]> {
-    return this.http.get<any>('http://localhost:8080/alternativa?size=100&page=0').pipe(
+    return this.http.get<any>('http://localhost:8080/alternativa/client?size=100&page=0').pipe(
         map(response => {
-          const alternativas: AlternativaCheck[] = response.content.map((data: any) => new AlternativaCheck(data));
-          alternativas.forEach(alternativa => alternativa.checked = false);
+          console.log(response);
+          const alternativas: AlternativaCheck[] = response.map((data: any) => new AlternativaCheck(data));
+          //alternativas.forEach(alternativa => alternativa.checked = false);
           return alternativas;
         })
       );

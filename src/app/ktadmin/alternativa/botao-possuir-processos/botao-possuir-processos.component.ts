@@ -18,7 +18,7 @@ export class BotaoPossuirProcessosComponent {
     console.log(this.value);
     console.log(this.rowData);
     this.windowService.open(ProcessosPossuidosComponent, {
-      title: `Gerencie os processos da alternativa ${this.rowData.id}`,
+      title: `Gerencie os processos da alternativa id : ${this.rowData.alternativa_id}`,
       context: {
         rowData: this.rowData,  // Passa os dados do rowData para o ProcessosPossuidosComponent
       },

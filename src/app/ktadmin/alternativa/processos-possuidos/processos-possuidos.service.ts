@@ -18,22 +18,14 @@ export class ProcessosPssuidosService {
 
   constructor(private http: HttpClient) { }
 
-  // getProcessosPossuidos(): Observable<Alternativa[]> {
-  //    return this.http.get<Alternativa[]>('http://localhost:8080/alternativa?size=100&page=0').pipe(
-  //         map((response:any) =>response.content));
-  //  }
+   getProcessosPossuidos(alternativa_id:number): Observable<ProcessoPossuido[]> {
+      return this.http.get<ProcessoPossuido[]>(`http://localhost:8080/alternativa/${alternativa_id}/processos?size=100&page=0`).pipe(
+           map((response:any) =>response.content));
+    }
 
-  // deleteAlternativa(id:number): Observable<any>{
-  //   // return this.http.delete(`http://localhost:8080/alternativa/${id}`);
-  // }
-
-  // updateAlternativa(alternativa:Alternativa):Observable<any>{
-  //   //  return this.http.put(`http://localhost:8080/alternativa`,alternativa);
-  // }
-
-  addAlternativa(alternativaPost:AlternativaPost):Observable<any>{
-    return this.http.post<AlternativaKtadmin>(`http://localhost:8080/alternativa`,alternativaPost)
-   }
+  deleteProcessoPossuido(id:number): Observable<any>{
+    return this.http.delete(`http://localhost:8080/alternativa/processo-possuido/${id}`);
+  }
 
    cadastrarProcessoPossuido(processoPossuidoPost:ProcessoPossuidoPost):Observable<any>{
     return this.http.post<ProcessoPossuido>(`http://localhost:8080/alternativa/possuir`,processoPossuidoPost)

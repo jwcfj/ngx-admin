@@ -17,7 +17,9 @@ export class FormularioComponent {
     private router:Router
     ) {
     this.formulario_service.getAlternativas().subscribe(response =>{
+      console.log(response);
       this.alternativas=response;
+      console.log(this.alternativas)
     });
   }
 
@@ -28,7 +30,8 @@ export class FormularioComponent {
   onSubmit() {
     console.log(this.alternativas)
     console.log({respostas_alternativas:this.alternativas})
-    this.formulario_service.getIndicados({respostas_alternativas:this.alternativas}).subscribe(response => {
+    //this.formulario_service.getIndicados({respostas_alternativas:this.alternativas}).subscribe(response => {
+    this.formulario_service.getIndicados({alternativas:this.alternativas}).subscribe(response => {
       console.log(response)
       this.objeto = response
       this.router.navigate(['client','formulario','resultado'],{state:{objeto:this.objeto}});

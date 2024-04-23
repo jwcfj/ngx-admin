@@ -39,7 +39,7 @@ export class AlternativaComponent{
     },    
     columns: {
       alternativa_id: {
-        title: 'ID',
+        title: 'Alternativa ID',
         type: 'number',
         editable: false,
         addable:false
@@ -80,23 +80,23 @@ export class AlternativaComponent{
        },
     },
   };
-  alternativas:AlternativaKtadmin[];
+  alternativas:Alternativa[];
   source: LocalDataSource = new LocalDataSource();
   constructor(
     private alternativa_service: AlternativaService,
     private windowService: NbWindowService
     ) {
       this.alternativas=[];
-      this.alternativas.push(new AlternativaKtadmin(
-        {id: 1,
-        pergunta: 'string'
-      }
-      ));
+      // this.alternativas.push(new Alternativa(
+      //   {alternativa_id: 1,
+      //   pergunta: 'string'
+      // }
+      // ));
       this.source.load(this.alternativas);
-    // this.alternativa_service.getAlternativas().subscribe(response =>{
-    //   this.data1=response;
-    //   this.source.load(this.data1);
-    // });
+       this.alternativa_service.getAlternativas().subscribe(response =>{
+         this.alternativas=response;
+         this.source.load(this.alternativas);
+       });
   }
 
   onAddConfirm(event): void {
@@ -117,8 +117,11 @@ export class AlternativaComponent{
     this.alternativa_service.addAlternativa(new AlternativaPost({pergunta:event.newData.pergunta}))
   .subscribe((alternativaDataReturn:AlternativaKtadmin)=>
       {
+        console.log(alternativaDataReturn);
         this.alternativas.push(alternativaDataReturn)
         this.source.load(this.alternativas);
+        event.newData.alternativa_id = alternativaDataReturn.alternativa_id
+        console.log(event);
         event.confirm.resolve()
 
       });
@@ -159,7 +162,7 @@ export class AlternativaComponent{
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
-      this.alternativa_service.deleteAlternativa(event.data.id).subscribe(event.confirm.resolve());
+      this.alternativa_service.deleteAlternativa(event.data.alternativa_id).subscribe(event.confirm.resolve());
     } else {
       event.confirm.reject();
     }

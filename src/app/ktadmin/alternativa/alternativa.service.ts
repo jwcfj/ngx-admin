@@ -18,8 +18,8 @@ export class AlternativaService {
         map((response:any) =>response.content));
 }
 
-deleteAlternativa(id:number): Observable<any>{
-    return this.http.delete(`http://localhost:8080/alternativa/${id}`);
+deleteAlternativa(alternativa_id:number): Observable<any>{
+    return this.http.delete(`http://localhost:8080/alternativa/${alternativa_id}`);
 }
 
 updateAlternativa(alternativa:Alternativa):Observable<any>{
