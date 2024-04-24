@@ -15,8 +15,6 @@ export class BotaoPossuirProcessosComponent {
   constructor(private windowService: NbWindowService) {}
 
   possuirProcessos(){
-    console.log(this.value);
-    console.log(this.rowData);
     this.windowService.open(ProcessosPossuidosComponent, {
       title: `Gerencie os processos da alternativa id : ${this.rowData.alternativa_id}`,
       context: {

@@ -67,16 +67,13 @@ export class ProcessosPossuidosComponent  {
 
      this.processosPossuidosService.getProcessosPossuidos(this.alternativaData.alternativa_id).subscribe(response =>{
        this.processo_possuido_data=response;
-       console.log(response);
        this.source.load(this.processo_possuido_data);
      });
-    console.log('constructor')
   }
 
 
   onAddConfirm(event): void {
 
-      console.log(event);
       
       this.processosPossuidosService.cadastrarProcessoPossuido(new ProcessoPossuidoPost({processo_id:event.newData.processo_id,alternativa_id:this.alternativaData.alternativa_id})).subscribe(
         (response:ProcessoPossuido) =>{
@@ -88,7 +85,6 @@ export class ProcessosPossuidosComponent  {
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
-      console.log(event)
       this.processosPossuidosService.deleteProcessoPossuido(event.data.possui_id).subscribe(
         event.confirm.resolve()
       );

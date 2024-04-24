@@ -56,8 +56,6 @@ export class AlternativaComponent{
          renderComponent: BotaoPossuirProcessosComponent,
          filter: false,
          valuePrepareFunction: (cell, row) => {
-           console.log(cell)
-           console.log(row)
            if (row ){
              return true;
            } else {
@@ -82,22 +80,17 @@ export class AlternativaComponent{
   }
 
   onAddConfirm(event): void {
-    console.log(typeof event)
-    console.log(event)
     let newDataTransfer={
       alternativa_id: -1,
       pergunta:event.newData.pergunta
     }
-    console.log(newDataTransfer)
 
     this.alternativa_service.addAlternativa(new AlternativaPost({pergunta:event.newData.pergunta}))
   .subscribe((alternativaDataReturn:AlternativaKtadmin)=>
       {
-        console.log(alternativaDataReturn);
         this.alternativas.push(alternativaDataReturn)
         this.source.load(this.alternativas);
         event.newData.alternativa_id = alternativaDataReturn.alternativa_id
-        console.log(event);
         event.confirm.resolve()
 
       });

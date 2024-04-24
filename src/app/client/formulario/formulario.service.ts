@@ -14,7 +14,6 @@ export class FormularioService {
   getAlternativas(): Observable<AlternativaCheck[]> {
     return this.http.get<any>('http://localhost:8080/alternativa/client?size=100&page=0').pipe(
         map(response => {
-          console.log(response);
           const alternativas: AlternativaCheck[] = response.map((data: any) => new AlternativaCheck(data));
           return alternativas;
         })
@@ -26,7 +25,6 @@ export class FormularioService {
 
     return this.http.post<any>('http://localhost:8080/processo/indicados',teste).pipe(
       map(response => {
-        console.log(response)
         return response;
       }
     ));
