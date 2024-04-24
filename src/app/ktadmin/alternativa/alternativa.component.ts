@@ -48,16 +48,6 @@ export class AlternativaComponent{
         title: 'Pergunta',
         type: 'string',
       },
-      // processo_id: {
-      //   title: 'Processo_id',
-      //   type: 'number',
-      //   addable:false,
-      //   editable: false,
-      // },
-      // processo: {
-      //   title: 'Processo',
-      //   type: 'string',
-      // },
        processos: {
          title: 'Processos',
          type:'custom',
@@ -66,15 +56,12 @@ export class AlternativaComponent{
          renderComponent: BotaoPossuirProcessosComponent,
          filter: false,
          valuePrepareFunction: (cell, row) => {
-           // Condição para determinar se o componente deve ser renderizado
-           // Se a condição for verdadeira, retorne o valor adequado para o componente,
-           // caso contrário, retorne um valor padrão ou vazio
            console.log(cell)
            console.log(row)
            if (row ){
              return true;
            } else {
-             return false;  // ou um valor padrão, dependendo do que você deseja
+             return false; 
            }
          },
        },
@@ -87,11 +74,6 @@ export class AlternativaComponent{
     private windowService: NbWindowService
     ) {
       this.alternativas=[];
-      // this.alternativas.push(new Alternativa(
-      //   {alternativa_id: 1,
-      //   pergunta: 'string'
-      // }
-      // ));
       this.source.load(this.alternativas);
        this.alternativa_service.getAlternativas().subscribe(response =>{
          this.alternativas=response;
@@ -101,13 +83,7 @@ export class AlternativaComponent{
 
   onAddConfirm(event): void {
     console.log(typeof event)
-    //atypeof 
     console.log(event)
-    // let newDataTransfer={
-    //   id: event.newData.id==""?-1:Number(event.newData.id),
-    //   pergunta:event.newData.pergunta
-    // }
-    //new AlternativaKtadmin({alternativa_id:77,pergunta:'aaa?'}
     let newDataTransfer={
       alternativa_id: -1,
       pergunta:event.newData.pergunta
@@ -125,37 +101,8 @@ export class AlternativaComponent{
         event.confirm.resolve()
 
       });
-    // // this.windowService.open(ProcessosPossuidosComponent, 
-    // //   {
-    // //     title: `Insira ao menos um processo para salvar a nova alternativa`,
-    // //     context: {
-    // //       rowData: newDataTransfer,  // Passa os dados do rowData para o ProcessosPossuidosComponent
-    // //     },
-    // //     buttons:{
-    // //       minimize: false,
-    // //       maximize: true,
-    // //       fullScreen: true,
-    // //       close: true,
-    // //     }
-    // // });
-    
-    
-    /*
-    //adicionando e dps pegando as alternativas
-    this.alternativa_service.addAlternativa(event.newData).subscribe(
-
-       event.confirm.resolve()
-            this.alternativa_service.getAlternativas().subscribe(response =>{
-            this.data1=response;
-            this.source.load(this.data1);
-          });
-    );*/
   }
-  // algoTerminado(event): void {
-  //   console.log('O filho terminou algo com os seguintes dados:', event);
-  //   this.settings.add.confirmCreate = true
-  //   //event.confirm.resolve();
-  // }
+
   onEditConfirm(event): void {
     this.alternativa_service.updateAlternativa(event.newData).subscribe(event.confirm.resolve());
   }

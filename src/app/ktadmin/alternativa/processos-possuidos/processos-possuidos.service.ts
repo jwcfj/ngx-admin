@@ -1,14 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-// import { Alternativa } from '../model/alternativa';
 import { map } from 'rxjs/operators';
 import { AlternativaPost } from '../../model/alternativa_post';
 import { Alternativa } from '../../model/alternativa';
 import { ProcessoPossuidoPost } from '../../model/processo_possuido_post';
 import { ProcessoPossuido } from '../../model/processo_possuido';
 import { AlternativaKtadmin } from '../../model/alternativa_ktadmin';
-// // import { AlternativaPost } from '../model/alternativa_post';
+
 
 
 @Injectable({

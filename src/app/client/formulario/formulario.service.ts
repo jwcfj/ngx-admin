@@ -16,7 +16,6 @@ export class FormularioService {
         map(response => {
           console.log(response);
           const alternativas: AlternativaCheck[] = response.map((data: any) => new AlternativaCheck(data));
-          //alternativas.forEach(alternativa => alternativa.checked = false);
           return alternativas;
         })
       );

@@ -30,7 +30,6 @@ export class FormularioComponent {
   onSubmit() {
     console.log(this.alternativas)
     console.log({respostas_alternativas:this.alternativas})
-    //this.formulario_service.getIndicados({respostas_alternativas:this.alternativas}).subscribe(response => {
     this.formulario_service.getIndicados({alternativas:this.alternativas}).subscribe(response => {
       console.log(response)
       this.objeto = response

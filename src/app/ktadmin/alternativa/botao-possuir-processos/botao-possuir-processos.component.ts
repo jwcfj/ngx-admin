@@ -8,8 +8,8 @@ import { ProcessosPossuidosComponent } from '../processos-possuidos/processos-po
   `,
 })
 export class BotaoPossuirProcessosComponent {
-  @Input() value: any;    // This hold the cell value
-  @Input() rowData: any;  // This holds the entire row object
+  @Input() value: any;    
+  @Input() rowData: any;  
 
 
   constructor(private windowService: NbWindowService) {}
@@ -20,7 +20,7 @@ export class BotaoPossuirProcessosComponent {
     this.windowService.open(ProcessosPossuidosComponent, {
       title: `Gerencie os processos da alternativa id : ${this.rowData.alternativa_id}`,
       context: {
-        rowData: this.rowData,  // Passa os dados do rowData para o ProcessosPossuidosComponent
+        rowData: this.rowData,  
       },
     });
 
