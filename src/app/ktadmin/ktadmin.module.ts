@@ -12,6 +12,8 @@ import { ProcessoComponent } from './processo/processo.component';
 import { AlternativaComponent } from './alternativa/alternativa.component';
 import { ProcessosPossuidosComponent } from './alternativa/processos-possuidos/processos-possuidos.component';
 import { BotaoPossuirProcessosComponent } from './alternativa/botao-possuir-processos/botao-possuir-processos.component';
+import { DescricaoStepperComponent } from './processo/descricao-stepper/descricao-stepper.component';
+import { DescricaoTextEditorComponent } from './processo/descricao-text-editor/descricao-text-editor.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { BotaoPossuirProcessosComponent } from './alternativa/botao-possuir-proc
     ProcessoComponent,
     AlternativaComponent,
     ProcessosPossuidosComponent,
-    BotaoPossuirProcessosComponent
+    BotaoPossuirProcessosComponent,
+    DescricaoStepperComponent,
+    DescricaoTextEditorComponent
   ],
   imports: [
     CommonModule,

@@ -19,7 +19,8 @@ export class TinyMCEComponent implements OnDestroy, AfterViewInit {
   ngAfterViewInit() {
     tinymce.init({
       target: this.host.nativeElement,
-      plugins: ['link', 'paste', 'table'],
+      plugins: ['link', 'paste', 'table','noneditable'],
+      noneditable_noneditable_class: "mceNonEditable",
       skin_url: `${this.locationStrategy.getBaseHref()}assets/skins/lightgray`,
       setup: editor => {
         this.editor = editor;
