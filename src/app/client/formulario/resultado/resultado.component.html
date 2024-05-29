@@ -1,8 +1,28 @@
+
+
 <nb-accordion>
     <nb-accordion-item *ngFor="let item of objetoRecebido.recorrencia_processos">
      <nb-accordion-item-header>{{item.nome}}: {{((item.recorrencia/objetoRecebido.total)*100).toFixed(2)}}% de Adequação ao contexto de aplicação. </nb-accordion-item-header>
      <nb-accordion-item-body>
-       {{item.descricao}}
+      <pdf-viewer [src]=item.descricao
+        [render-text]="true"
+        [original-size]="false"
+        style="width: 400px; height: 500px"
+      ></pdf-viewer>
+
+      
      </nb-accordion-item-body>
     </nb-accordion-item>
    </nb-accordion> 
+
+
+
+   <!-- <pdf-viewer [src]=item.descricao
+        [render-text]="true"
+        [original-size]="false"
+        style="width: 400px; height: 500px"
+      ></pdf-viewer> -->
+<!-- <div class="pdf-container">
+        <embed [src]=item.descricao  type="application/pdf" width="100%" height="600px">
+      </div> -->
+       <!-- {{item.descricao}} -->

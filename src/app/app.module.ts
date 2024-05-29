@@ -21,6 +21,7 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import { ClientComponent } from './client/client.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +29,7 @@ import { ClientComponent } from './client/client.component';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    PdfViewerModule,
     AppRoutingModule,
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),

@@ -5,6 +5,13 @@ import { takeWhile } from 'rxjs/operators';
 
 @Component({
   selector: 'ngx-resultado',
+// template:`
+// <pdf-viewer [src]=this.item.descricao
+// [render-text]="true"
+// [original-size]="false"
+// style="width: 400px; height: 500px"
+// ></pdf-viewer>
+// `,
   templateUrl: './resultado.component.html',
   styleUrls: ['./resultado.component.scss']
 })
