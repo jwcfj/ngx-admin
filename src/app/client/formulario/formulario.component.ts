@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormularioService } from './formulario.service';
-import { AlternativaCheck } from '../../ktadmin/model/alternativa-check';
+
 import { ActivatedRoute, Router } from '@angular/router';
+import { AlternativaCheck } from '../../model/alternativa-check';
+// import { AlternativaCheck } from '../../model/alternativa-check';
 
 
 @Component({

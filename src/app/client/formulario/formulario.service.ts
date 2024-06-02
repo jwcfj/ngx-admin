@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AlternativaCheck } from '../../ktadmin/model/alternativa-check';
+import { AlternativaCheck } from '../../model/alternativa-check';
 
 @Injectable({
   providedIn: 'root'
