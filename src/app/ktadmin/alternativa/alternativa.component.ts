@@ -1,14 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Alternativa } from '../model/alternativa';
+import { Alternativa } from '../../model/alternativa';
 import { LocalDataSource } from 'ng2-smart-table';
 import { AlternativaService } from './alternativa.service';
-import { AlternativaKtadmin } from '../model/alternativa_ktadmin';
+import { AlternativaKtadmin } from '../../model/alternativa_ktadmin';
 import { BotaoPossuirProcessosComponent } from './botao-possuir-processos/botao-possuir-processos.component';
 import { NbGlobalPhysicalPosition, NbGlobalPosition, NbToastrService, NbWindowService } from '@nebular/theme';
 import { ProcessosPossuidosComponent } from './processos-possuidos/processos-possuidos.component';
 
 import { Subscription } from 'rxjs';
-import { AlternativaPost } from '../model/alternativa_post';
+import { AlternativaPost } from '../../model/alternativa_post';
 
 
 @Component({
@@ -113,7 +113,7 @@ export class AlternativaComponent{
     if(event.data.alternativa_id==-1)
       {
         this.showToast("Default Alternative can't be deleted");
-        event.confirm.resolve();
+        event.confirm.reject();
       }
     else
     {

@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Processo } from '../model/processo';
+import { Processo } from '../../model/processo';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ProcessoPost } from '../model/processo_post';
+import { ProcessoPost } from '../../model/processo_post';
 
 @Injectable({
   providedIn: 'root'

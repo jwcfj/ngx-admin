@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Processo } from '../model/processo';
+import { Processo } from '../../model/processo';
 import { LocalDataSource } from 'ng2-smart-table';
 import { ProcessoService } from './processo.service';
 import { NbComponentStatus, NbGlobalPhysicalPosition, NbGlobalPosition, NbToastrService } from '@nebular/theme';

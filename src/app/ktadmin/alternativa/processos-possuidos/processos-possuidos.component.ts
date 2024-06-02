@@ -1,15 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Processo } from '../../model/processo';
+import { Processo } from '../../../model/processo';
 import { LocalDataSource } from 'ng2-smart-table';
 import { ProcessoService } from '../../processo/processo.service';
 import { ProcessosPssuidosService } from './processos-possuidos.service';
 import { NbWindowRef } from '@nebular/theme';
 import { AlternativaService } from '../alternativa.service';
-import { ProcessoPossuido } from '../../model/processo_possuido';
-import { AlternativaPost } from '../../model/alternativa_post';
-import { Alternativa } from '../../model/alternativa';
-import { ProcessoPossuidoPost } from '../../model/processo_possuido_post';
-import { AlternativaKtadmin } from '../../model/alternativa_ktadmin';
+import { ProcessoPossuido } from '../../../model/processo_possuido';
+import { AlternativaPost } from '../../../model/alternativa_post';
+import { Alternativa } from '../../../model/alternativa';
+import { ProcessoPossuidoPost } from '../../../model/processo_possuido_post';
+import { AlternativaKtadmin } from '../../../model/alternativa_ktadmin';
 
 @Component({
   selector: 'ngx-processos-possuidos',
