@@ -30,6 +30,7 @@ export class FormularioComponent {
   onSubmit() {
     this.formulario_service.getIndicados({alternativas:this.alternativas}).subscribe(response => {
       this.objeto = response
+      console.log(response);
       this.router.navigate(['client','formulario','resultado'],{state:{objeto:this.objeto}});
     });
   }
