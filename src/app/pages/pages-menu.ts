@@ -6,13 +6,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
     // icon: 'person-outline',
     icon: 'trending-up-outline',
     
-    link: '/ktadmin/processo',
+    link: '/ktadmin/process',
     home: true,
   },
   {
     title: 'Alternative',
     icon: 'checkmark-outline',
-    link: '/ktadmin/alternativa',
+    link: '/ktadmin/alternative',
     home: true,
   },
 ];

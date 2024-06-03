@@ -3,7 +3,7 @@ import { Processo } from '../../../model/processo';
 import { LocalDataSource } from 'ng2-smart-table';
 import { ProcessoService } from '../../processo/processo.service';
 import { ProcessosPssuidosService } from './processos-possuidos.service';
-import { NbWindowRef } from '@nebular/theme';
+import { NbGlobalPhysicalPosition, NbGlobalPosition, NbToastrService, NbWindowRef } from '@nebular/theme';
 import { AlternativaService } from '../alternativa.service';
 import { ProcessoPossuido } from '../../../model/processo_possuido';
 import { AlternativaPost } from '../../../model/alternativa_post';
@@ -60,7 +60,9 @@ export class ProcessosPossuidosComponent  {
   constructor(
     private windowRef: NbWindowRef,
     private processosPossuidosService: ProcessosPssuidosService,
-    private alternativa_service: AlternativaService
+    private alternativa_service: AlternativaService,
+    private toastrService: NbToastrService
+
     ) {
       this.alternativaData = this.windowRef.config.context;
       this.alternativaData = this.alternativaData.rowData;
@@ -73,23 +75,48 @@ export class ProcessosPossuidosComponent  {
 
 
   onAddConfirm(event): void {
-
-      
+    if(event.newData.processo_id==-1)this.showToast("None of the alternatives alternative can't have more than one process");
+    else
+    {
       this.processosPossuidosService.cadastrarProcessoPossuido(new ProcessoPossuidoPost({processo_id:event.newData.processo_id,alternativa_id:this.alternativaData.alternativa_id})).subscribe(
         (response:ProcessoPossuido) =>{
              this.processo_possuido_data.push(response);
              this.source.load(this.processo_possuido_data);
              event.confirm.resolve()
            });
+      }
   }
 
   onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      this.processosPossuidosService.deleteProcessoPossuido(event.data.possui_id).subscribe(
-        event.confirm.resolve()
-      );
-    } else {
-      event.confirm.reject();
-    }
+     if(event.data.processo_id==-1)this.showToast("None of the alternatives alternative's process can't be deleted");
+     else
+     {
+      if (window.confirm('Are you sure you want to delete?')) {
+        this.processosPossuidosService.deleteProcessoPossuido(event.data.possui_id).subscribe(
+          event.confirm.resolve()
+        );
+      } else {
+        event.confirm.reject();
+      }
+     }
+  }
+
+  position: NbGlobalPosition = NbGlobalPhysicalPosition.TOP_RIGHT;
+
+  private showToast(message:string) {
+    const config = {
+      status: 'warning',
+      destroyByClick: true,
+      duration: 2000,
+      hasIcon: true,
+      position: this.position,
+      preventDuplicates: false
+    };
+
+    this.toastrService.show(
+      message,
+      //"Default Alternative can't be deleted",
+      `Warning`,
+      config);
   }
 }

@@ -16,10 +16,10 @@ export const routes: Routes = [
       .then(m => m.PagesModule),
   },
   {
-    path: 'keadmin',loadChildren: () => import('./ktadmin/ktadmin.module').then(m => m.KtadminModule),
+    path: 'ktadmin',loadChildren: () => import('./ktadmin/ktadmin.module').then(m => m.KtadminModule),
   },
-  { path: '', redirectTo: 'keadmin', pathMatch: 'full' },
-  { path: '**', redirectTo: 'keadmin' },
+  { path: '', redirectTo: 'ktadmin', pathMatch: 'full' },
+  { path: '**', redirectTo: 'ktadmin' },
 ];
 
 const config: ExtraOptions = {

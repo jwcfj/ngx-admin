@@ -9,11 +9,12 @@ const routes: Routes = [
   path: '', component: KtadminComponent,
     children:[
       {
-        path: 'processo', component:ProcessoComponent
+        path: 'process', component:ProcessoComponent
       },
       {
-        path: 'alternativa', component:AlternativaComponent
-      },
+        path: 'alternative', component:AlternativaComponent
+      }
+      ,
       {
         path: '**', component:ProcessoComponent
       }
