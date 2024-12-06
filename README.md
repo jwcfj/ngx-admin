@@ -93,3 +93,9 @@ Visit [our homepage](https://www.akveo.com?utm_campaign=services%20-%20akveo%20w
 
 Made with :heart: by [Akveo team](https://www.akveo.com?utm_campaign=services%20-%20akveo%20website%20-%20ngx_admin%20github%20readme&utm_source=ngx_admin&utm_medium=referral&utm_content=from_developers_made_by). Follow us on [Twitter](https://twitter.com/akveo_inc) to get the latest news first!
 We're always happy to receive your feedback!
+
+## Build & Run Container
+
+docker build -t angular-docker-client .
+
+docker run -p 4201:4200 -d angular-docker-client
