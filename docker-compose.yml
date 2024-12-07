@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    ports:
+      - 4200:4200
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db-data:

@@ -1,18 +1,20 @@
+# Use an official Node.js runtime as a base image
+FROM node:18
 
-# Stage 1: Build the Angular application
-# FROM node:14-alpine as build
-# WORKDIR /app
-# COPY package.json package-lock.json ./
-# RUN npm install
-# COPY . .
-# RUN npm run build
-FROM node:18.19
+# Set the working directory in the container
+WORKDIR /usr/src/app
 
-WORKDIR /kt-admin
-COPY . /kt-admin
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
-RUN npm config set legacy-peer-deps true
+# Install dependencies
+#RUN npm install
 RUN npm install -g @angular/cli
-RUN npm install 
-RUN npm i @types/ws@8.5.4
+# Copy the rest of the application code to the working directory
+COPY . .
+
+# Expose the port your app runs on
+EXPOSE 4200
+
+# Command to run your application
 CMD ["ng", "serve", "--host", "0.0.0.0"]
