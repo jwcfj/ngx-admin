@@ -1,20 +1,29 @@
-# Use an official Node.js runtime as a base image
-FROM node:18
-
-# Set the working directory in the container
-WORKDIR /usr/src/app
-
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
-
-# Install dependencies
-#RUN npm install
-RUN npm install -g @angular/cli
-# Copy the rest of the application code to the working directory
+### STAGE 1:BUILD ###
+# Defining a node image to be used as giving it an alias of "build"
+# Which version of Node image to use depends on project dependencies 
+# This is needed to build and compile our code 
+# while generating the docker image
+FROM node:14.20-alpine AS build
+# Create a Virtual directory inside the docker image
+WORKDIR /dist/src/app
+# Copy files to virtual directory
 COPY . .
+# COPY package.json package-lock.json ./
+# Run command in Virtual directory
+RUN npm cache clean --force
+# Copy files from local machine to virtual directory in docker image
+COPY . .
+RUN npm install
+RUN npm run build --prod
 
-# Expose the port your app runs on
-EXPOSE 4200
 
-# Command to run your application
-CMD ["ng", "serve", "--host", "0.0.0.0"]
+### STAGE 2:RUN ###
+# Defining nginx image to be used
+FROM nginx:latest AS ngi
+# Copying compiled code and nginx config to different folder
+# NOTE: This path may change according to your project's output folder 
+COPY --from=build /dist/src/app/dist/my-docker-angular-app /usr/share/nginx/html
+COPY /nginx.conf  /etc/nginx/conf.d/default.conf
+# Exposing a port, here it means that inside the container 
+# the app will be using Port 80 while running
+EXPOSE 80

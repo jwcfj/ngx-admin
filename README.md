@@ -96,6 +96,6 @@ We're always happy to receive your feedback!
 
 ## Build & Run Container
 
-docker build -t angular-docker-client .
+docker build -t angular-docker-app:v1.0.0 -f ./Dockerfile .
 
-docker run -p 4201:4200 -d angular-docker-client
+docker run -p 4200:80 -d angular-docker-app:v1.0.0
